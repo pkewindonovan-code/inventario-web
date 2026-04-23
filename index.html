@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Inventario de Productos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section id="vista-lista" class="card">
+      <h1>Sistema de Inventario de Productos</h1>
+
+      <div class="top-buttons">
+        <button onclick="mostrarAgregar()">+ Agregar Producto</button>
+        <button onclick="mostrarReporte()">Reporte por Fecha</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Categoría</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-productos"></tbody>
+      </table>
+    </section>
+
+    <section id="vista-agregar" class="form-card oculto">
+      <h1>Agregar Productos</h1>
+
+      <label>Nombre del Producto</label>
+      <input id="nombre" type="text" />
+
+      <label>Precio</label>
+      <input id="precio" type="number" step="0.01" />
+
+      <label>Stock</label>
+      <input id="stock" type="number" />
+
+      <label>Categoría</label>
+      <select id="categoria">
+        <option value="">Seleccione una Categoría</option>
+        <option>Granos</option>
+        <option>Bebidas</option>
+        <option>Limpieza</option>
+        <option>Abarrotes</option>
+        <option>Otros</option>
+      </select>
+
+      <div class="form-buttons">
+        <button onclick="guardarProducto()">Guardar</button>
+        <button onclick="mostrarLista()">Volver</button>
+      </div>
+    </section>
+
+    <section id="vista-editar" class="form-card oculto">
+      <h1>Editar Productos</h1>
+
+      <input id="edit-id" type="hidden" />
+
+      <label>Nombre del Producto</label>
+      <input id="edit-nombre" type="text" />
+
+      <label>Precio</label>
+      <input id="edit-precio" type="number" step="0.01" />
+
+      <label>Stock</label>
+      <input id="edit-stock" type="number" />
+
+      <label>Categoría</label>
+      <select id="edit-categoria">
+        <option>Granos</option>
+        <option>Bebidas</option>
+        <option>Limpieza</option>
+        <option>Abarrotes</option>
+        <option>Otros</option>
+      </select>
+
+      <div class="form-buttons">
+        <button onclick="actualizarProducto()">Editar</button>
+        <button onclick="mostrarLista()">Volver</button>
+      </div>
+    </section>
+
+    <section id="vista-reporte" class="card oculto">
+      <h1>Reporte de Productos</h1>
+
+      <div class="filtros">
+        <div>
+          <label>Desde</label>
+          <input id="desde" type="date" />
+        </div>
+
+        <div>
+          <label>Hasta</label>
+          <input id="hasta" type="date" />
+        </div>
+
+        <button onclick="buscarReporte()">Buscar</button>
+        <button onclick="mostrarLista()">Volver</button>
+      </div>
+
+      <button class="csv" onclick="exportarCSV()">Exportar CSV</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Categoría</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-reporte"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
