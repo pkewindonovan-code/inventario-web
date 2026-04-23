@@ -4,8 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sistema de Inventario de Productos</title>
+  <div class="top-buttons">
+  <button onclick="cerrarSesion()">Cerrar sesión</button>
+</div>
   <link rel="stylesheet" href="style.css" />
 </head>
+<script>
+  if (localStorage.getItem("login") !== "activo") {
+    window.location.href = "login.html";
+  }
+</script>
 <body>
   <main class="container">
     <section id="vista-lista" class="card">

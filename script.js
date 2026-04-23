@@ -186,3 +186,7 @@ function exportarCSV() {
 }
 
 cargarTabla();
+function cerrarSesion() {
+  localStorage.removeItem("login");
+  window.location.href = "login.html";
+}
